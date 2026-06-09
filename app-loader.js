@@ -2,16 +2,22 @@
 
     "use strict";
 
-	// ===================================
+    // ===================================
     // VERSION
     // ===================================
-	const VERSION = '1.0.5';
+    const VERSION = '1.0.5';
 
     // ===================================
     // CONFIG
     // ===================================
     const CDN_BASE =
-		'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@main';
+        'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@main';
+
+    // ===================================
+    // Config
+    // ===================================
+    window.APP_VERSION = VERSION;
+    window.CDN_BASE = CDN_BASE;
 
     // ===================================
     // CSS

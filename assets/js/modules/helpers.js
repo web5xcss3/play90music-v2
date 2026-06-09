@@ -56,24 +56,30 @@
         return arr;
     };
 
+    window.CDN_BASE =
+        'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@main';
+
+    window.resolveAsset = function(path) {
+
+        if (path.startsWith('http')) return path;
+
+        return `${window.CDN_BASE}/${path}`;
+    };
+
     window.loadScriptOnce = function(id, src, callback) {
 
         if (document.getElementById(id)) {
-            if (typeof callback === 'function') {
-                callback();
-            }
+            if (typeof callback === 'function') callback();
             return;
         }
 
         const script = document.createElement('script');
 
         script.id = id;
-        script.src = src;
+        script.src = resolveAsset(src);
 
         script.onload = function() {
-            if (typeof callback === 'function') {
-                callback();
-            }
+            if (typeof callback === 'function') callback();
         };
 
         script.onerror = function() {

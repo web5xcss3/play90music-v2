@@ -98,7 +98,23 @@
 
                 switchTab(tab);
             });
-        
+
+        // FORM PÚBLICO
+        $(document)
+            .off('click', '#openSubmitAlbum')
+            .on('click', '#openSubmitAlbum', function(e) {
+                e.preventDefault();
+
+                switchTab('submitAlbum');
+
+                loadScriptOnce(
+                    'publicSubmitScript',
+                    'assets/js/modules/public-submit.js',
+                    function() {
+                        initPublicSubmitForm();
+                    }
+                );
+            });
     };
 
 })(jQuery);

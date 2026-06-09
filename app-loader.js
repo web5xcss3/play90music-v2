@@ -13,12 +13,6 @@
     const CDN_BASE =
 		'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@main';
 
-	// ===================================
-    // CONFIG.
-    // ===================================
-	window.APP_VERSION = VERSION;
-	window.CDN_BASE = CDN_BASE;
-
     // ===================================
     // CSS
     // ===================================

@@ -44,7 +44,7 @@
     // CORE
     // ===================================
     const CORE = [
-        `${CDN_BASE}/assets/js/modules/helpers.js`,
+        `${CDN_BASE}/assets/js/modules/helpers.js?v=${VERSION}`,
         `${CDN_BASE}/assets/js/modules/api.js`,
         `${CDN_BASE}/assets/js/modules/ui-effects.js`,
         `${CDN_BASE}/assets/js/modules/tabs.js`,

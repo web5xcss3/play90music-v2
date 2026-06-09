@@ -58,7 +58,7 @@
 
     window.CDN_BASE =
         'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@main';
-
+    
     window.resolveAsset = function(path) {
 
         if (path.startsWith('http')) return path;

@@ -61,17 +61,30 @@
             .slice()
             .sort((a, b) => (b.id || 0) - (a.id || 0));
 
-        $container.html(sortedGenres.map(genre => `
+        $container.html(sortedGenres.map(genre => {
+
+            const image = typeof resolveAsset === 'function' ?
+                resolveAsset(genre.image || 'assets/images/music-default.webp') :
+                (genre.image || 'assets/images/music-default.webp');
+
+            return `
             <div class="genre-card md-ripples ripples-light"
                  data-genre="${escapeHtml(genre.name)}">
 
                 <article class="box post">
+                    <div class="content">
+                        <div class="image fit md-ripples ripples-light" data-position="center">
+                            <img src="${image}"alt="${escapeHtml(genre.name)}"loading="lazy">
+                        </div>
+                    </div>
+
                     <header class="align-center">
                         <h3>${escapeHtml(genre.name)}</h3>
                     </header>
                 </article>
             </div>
-        `).join(''));
+        `;
+        }).join(''));
 
         $container
             .find('.genre-card')

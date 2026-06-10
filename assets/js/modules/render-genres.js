@@ -64,8 +64,8 @@
         $container.html(sortedGenres.map(genre => {
 
             const image = typeof resolveAsset === 'function' ?
-                resolveAsset(genre.image || 'assets/images/music-default.webp') :
-                (genre.image || 'assets/images/music-default.webp');
+                resolveAsset(genre.image || 'images/genres/music-default.webp') :
+                (genre.image || 'images/genres/music-default.webp');
 
             return `
             <div class="genre-card md-ripples ripples-light"

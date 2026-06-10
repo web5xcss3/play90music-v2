@@ -66,7 +66,7 @@
         `${CDN_BASE}/assets/js/modules/artist-media.js`,
         `${CDN_BASE}/assets/js/modules/render-albums.js`,
         `${CDN_BASE}/assets/js/modules/render-labels.js`,
-        `${CDN_BASE}/assets/js/modules/render-genres.js`,
+        `${CDN_BASE}/assets/js/modules/render-genres.js?v=${VERSION}`,
         `${CDN_BASE}/assets/js/modules/render-timeline.js`,
         `${CDN_BASE}/assets/js/modules/render-singles.js`,
         `${CDN_BASE}/assets/js/modules/render-vinyls.js`,

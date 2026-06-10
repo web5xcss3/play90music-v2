@@ -63,27 +63,30 @@
 
         $container.html(sortedGenres.map(genre => {
 
+            const imagePath = genre.image || 'assets/images/music-default.webp';
+
             const image = typeof resolveAsset === 'function' ?
-                resolveAsset(genre.image || 'images/genres/music-default.webp') :
-                (genre.image || 'images/genres/music-default.webp');
+                resolveAsset(imagePath) :
+                imagePath;
 
             return `
-            <div class="genre-card md-ripples ripples-light"
-                 data-genre="${escapeHtml(genre.name)}">
+        <div class="genre-card md-ripples ripples-light"
+             data-genre="${escapeHtml(genre.name)}">
 
-                <article class="box post">
-                    <div class="content">
-                        <div class="image fit md-ripples ripples-light" data-position="center">
-                            <img src="${image}"alt="${escapeHtml(genre.name)}"loading="lazy">
-                        </div>
+            <article class="box post">
+                <div class="content">
+                    <div class="image fit md-ripples ripples-light" data-position="center">
+                        <img
+                            src="${image}" alt="${escapeHtml(genre.name)}" loading="lazy">
                     </div>
+                </div>
 
-                    <header class="align-center">
-                        <h3>${escapeHtml(genre.name)}</h3>
-                    </header>
-                </article>
-            </div>
-        `;
+                <header class="align-center">
+                    <h3>${escapeHtml(genre.name)}</h3>
+                </header>
+            </article>
+        </div>
+    `;
         }).join(''));
 
         $container
@@ -95,6 +98,7 @@
 
                 renderAlbumsByStyle(genreName);
             });
+
     };
 
     // ==================

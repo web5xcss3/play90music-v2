@@ -2,9 +2,9 @@
 
     "use strict";
 
-    // ==========================
+    // =========================
     // GENRES ALBUMS STATE
-    // ==========================
+    // =========================
     let genresAlbumsData = [];
     let genresAlbumsVisible = 0;
     const genresAlbumsPerLoad = 11;

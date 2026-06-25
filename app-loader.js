@@ -5,7 +5,7 @@
     // ===================================
     // VERSION
     // ===================================
-    const VERSION = '1.0.10';
+    const VERSION = '1.0.11';
 
     // ===================================
     // CONFIG
@@ -38,6 +38,14 @@
         `${CDN_BASE}/assets/js/ripples.js`,
         `${CDN_BASE}/assets/js/fillcolor.js`
     ];
+
+    // ===================================
+	// ANALYTICS
+	// ===================================
+	const ANALYTICS = [
+		`${CDN_BASE}/assets/js/core/play90-events.js`,
+		`${CDN_BASE}/assets/js/modules/analytics.js`
+	];
 
     // ===================================
     // TEMPLATE
@@ -166,6 +174,7 @@
             await loadGroup('BASE', BASE);
             await loadGroup('TEMPLATE', TEMPLATE);
             await loadGroup('CORE', CORE);
+            await loadGroup('ANALYTICS', ANALYTICS);
             await loadGroup('RENDERS', RENDERS);
             await loadGroup('APP', APP);
             await loadGroup('EXTRAS', EXTRAS);

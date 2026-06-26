@@ -11,7 +11,7 @@
     // CONFIG
     // ===================================
     const CDN_BASE =
-        'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@8ed9ba4';
+        'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@main';
 
     // ===================================
     // Config

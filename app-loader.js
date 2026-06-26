@@ -5,13 +5,13 @@
     // ===================================
     // VERSION
     // ===================================
-    const VERSION = '1.0.12';
+    const VERSION = '1.0.13';
 
     // ===================================
     // CONFIG
     // ===================================
     const CDN_BASE =
-        'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@main';
+        'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@8ed9ba4';
 
     // ===================================
     // Config

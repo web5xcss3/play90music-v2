@@ -5,7 +5,7 @@
     // ===================================
     // VERSION
     // ===================================
-    const VERSION = '1.0.13';
+    const VERSION = '1.0.14';
 
     // ===================================
     // CONFIG
@@ -83,7 +83,7 @@
         `${CDN_BASE}/assets/js/modules/render-music.js`,
         `${CDN_BASE}/assets/js/modules/render-playlists.js`,
         `${CDN_BASE}/assets/js/modules/render-videos.js`,
-        `${CDN_BASE}/assets/js/modules/home-featured.js`
+        `${CDN_BASE}/assets/js/modules/home-featured.js?v=${VERSION}`
     ];
 
     // ===================================

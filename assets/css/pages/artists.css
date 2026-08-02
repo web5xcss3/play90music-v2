@@ -1,0 +1,79 @@
+/* All Artistas */
+
+	#allArtists .box {
+		padding: 1em;
+		height: 100%;
+	}
+
+		#allArtists .box:before, #relatedAlbums .box:before, #topArtistsHome .box:before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			left: 0;
+			top: 0;
+			width: 100%;
+		}
+		
+			#allArtists .box:before, #topArtistsHome .box:before {
+				border-radius: 1em;
+			}
+			
+			#allArtists .box.post.loadmore-post:before {
+				background-image: none;
+			}
+			
+			#relatedAlbums .box:before {
+				background-color: rgba(0, 0, 0, 0.3);
+			}
+		
+		#allArtists .box header, #relatedAlbums .box header, #topArtistsHome .box header {
+			position: relative;
+			z-index: 1;
+		}
+
+		#allArtists .box .image.fit.circles, 
+		#allArtists .box .image.fit.circles img {
+			-webkit-transition: border-radius 300ms ease-out;
+			-moz-transition: border-radius 300ms ease-out;
+			-o-transition: border-radius 300ms ease-out;
+			transition: border-radius 300ms ease-out;
+			border-radius: 100%;
+		}
+
+			#allArtists .box .image.fit.circles:hover, 
+			#allArtists .box .image.fit.circles img:hover {
+				border-radius: 0.5em;
+			}
+
+		#allArtists .box .image.fit, #allArtists .box .image.fit:after {
+			background-color: transparent;
+		}
+
+	#featuredAlbums .image.fit, #homeVideos .image.fit {
+		padding-top: 65%;
+	}
+	
+	#artist-bio {
+		line-height: 1.6;
+		color: #ccc;
+	}
+	
+	.bio-read-more {
+		display: inline-block;
+		margin-left: 6px;
+		border: 0;
+		background: transparent;
+		color: #1db954;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+		.bio-read-more:hover {
+			text-decoration: underline;
+		}
+	
+	.lyrics-box {
+		flex-direction: column;
+		text-align: center;
+		padding: 2em !important;
+	}

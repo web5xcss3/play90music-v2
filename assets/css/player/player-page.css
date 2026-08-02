@@ -1,0 +1,51 @@
+/* Player Page */
+
+	#player-page {
+		-moz-transform: translateY(100%);
+		-webkit-transform: translateY(100%);
+		-ms-transform: translateY(100%);
+		transform: translateY(100%);
+		-moz-transition: -moz-transform 0.2s ease, opacity 0.2s ease, visibility 0.2s;
+		-webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease, visibility 0.2s;
+		-ms-transition: -ms-transform 0.2s ease, opacity 0.2s ease, visibility 0.2s;
+		transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s;
+		background-color: #030303;
+		position: fixed;
+		height: 100%;
+		left: 0;
+		top: 0;
+		width: 100%;
+		visibility: hidden;
+		opacity: 0;
+		z-index: 2;
+	}
+
+		#player-page.showmore {
+			-moz-transform: translateY(0);
+			-webkit-transform: translateY(0);
+			-ms-transform: translateY(0);
+			transform: translateY(0);
+			visibility: visible;
+			opacity: 1;
+		}
+
+		#player-page .content {
+			-moz-transition: margin-left 0.2s ease;
+			-webkit-transition: margin-left 0.2s ease;
+			-ms-transition: margin-left 0.2s ease;
+			transition: margin-left 0.2s ease;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			gap: 1em;
+			background-color: #0d0d0d;
+			position: relative;
+			height: calc(100vh - 5.5em - 5em);
+			padding: 1em;
+			top: 5.5em;
+		}
+
+	body.is-menu-visible #player-page .content {
+		margin-left: 6em;
+	}

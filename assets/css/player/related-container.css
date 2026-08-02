@@ -1,0 +1,153 @@
+/* Related Container */
+	
+	#relatedContainer {
+		-moz-transition: margin-left 0.2s ease;
+		-webkit-transition: margin-left 0.2s ease;
+		-ms-transition: margin-left 0.2s ease;
+		transition: margin-left 0.2s ease;
+		background-color: #1b1b1b;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		bottom: 5em;
+		padding: 1em;
+		display: none;
+		z-index: 1000;
+	}
+
+		#relatedContainer #relatedAlbums {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			margin-top: 1em;
+			gap: 1em;
+		}
+
+			#relatedContainer #relatedAlbums .album-card .box {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-align-items: center;
+				-webkit-align-items: center;
+				-ms-align-items: center;
+				align-items: center;
+				-moz-transition: background-color 0.2s ease;
+				-webkit-transition: background-color 0.2s ease;
+				-ms-transition: background-color 0.2s ease;
+				transition: background-color 0.2s ease;
+				border-radius: 0.5em;
+				background: rgba(255,255,255,0.075);
+				padding: 0.5em;
+				width: 15em;
+				cursor: pointer;
+				margin-bottom: 1em;
+				gap: 1em;
+			}
+
+				#relatedContainer #relatedAlbums .album-card .box:hover {
+					background: rgba(255,255,255,0.2);
+				}
+
+				#relatedContainer #relatedAlbums .album-card .box .image {
+					width: 4em;
+					height: 4em;
+					border-radius: 0.5em;
+					margin: 0;
+				}
+
+					#relatedContainer #relatedAlbums .album-card .box .image img {
+						border-radius: 0.5em;
+					}
+
+					#relatedContainer #relatedAlbums .album-card .box .image:after {
+						border-radius: 0.5em;
+					}
+
+				#relatedContainer #relatedAlbums .album-card .box ul.icons li.alt1 {
+					padding: 0
+				}
+
+					#relatedContainer #relatedAlbums .album-card .box ul.icons li.alt1 button.icon {
+						font-size: 1.25em
+					}
+
+				#relatedContainer #relatedAlbums .album-card .box ul.icons li button.icon {
+					transform: none;
+					height: 2.25em;
+					width: 2.25em;
+					line-height: 2em;
+					border: 0;
+				}
+
+				#relatedContainer #relatedAlbums .album-card.current .box {
+					background: rgba(255,255,255,0.2);
+				}
+
+					#relatedContainer #relatedAlbums .album-card.current .box .image:after {
+						background: rgba(0,0,0, 0.5)
+					}
+
+					#relatedContainer #relatedAlbums .album-card.current .box ul.icons {
+						opacity: 1
+					}
+
+						#relatedContainer #relatedAlbums .album-card.current .box ul.icons li.alt1, 
+						#relatedContainer #relatedAlbums .album-card .box ul.icons li.alt2 {
+							display: none;
+						}
+
+						#relatedContainer #relatedAlbums .album-card.current .box ul.icons li.alt2 {
+							display: block;
+						}
+
+							#relatedContainer #relatedAlbums .album-card.current .box ul.icons li.alt2 button.icon.wave {
+								background-color: transparent
+							}
+
+								#relatedContainer #relatedAlbums .album-card.current .box ul.icons li.alt2 button.icon.wave span {
+									background-color: #fff
+								}
+
+				#relatedContainer #relatedAlbums .album-card .box header h3, 
+				#relatedContainer #relatedAlbums .album-card .box header p {
+					font-size: 0.9em;
+					color: #ffffff;
+				}
+
+				#relatedContainer #relatedAlbums .album-card .box header p {
+					margin: 0
+				}
+
+			#relatedContainer #relatedAlbums.related-grid {
+				overflow-x: auto;
+				scroll-snap-type: x mandatory;
+				scroll-behavior: smooth;
+				-webkit-overflow-scrolling: touch;
+			}
+
+				/* Estilo para WebKit: Chrome, Edge, Safari */
+				#relatedContainer #relatedAlbums.related-grid::-webkit-scrollbar {
+					height: 8px;
+					display: block;
+				}
+
+				#relatedContainer #relatedAlbums.related-grid::-webkit-scrollbar-thumb {
+					background-color: rgba(255, 255, 255, 0.2);
+					border-radius: 4px;
+					border: 2px solid rgba(255, 255, 255, 0.2);
+				}
+
+				#relatedContainer #relatedAlbums.related-grid::-webkit-scrollbar-track {
+					background-color: #333;
+				}
+
+	body.is-menu-visible #relatedContainer {
+		margin-left: 0;
+	}

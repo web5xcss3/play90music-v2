@@ -1,0 +1,40 @@
+/* Side Panel */
+
+	#side-panel {
+		overflow-y: auto;
+		width: 36%;
+	}
+
+		#side-panel .album-details {
+			background-color: #111;
+			border-radius: 0.5em;
+			padding: 1em;
+		}
+
+			#side-panel .details-grid .detail-item {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-align-items: center;
+				-webkit-align-items: center;
+				-ms-align-items: center;
+				align-items: center;
+				-moz-justify-content: space-between;
+				-webkit-justify-content: space-between;
+				-ms-justify-content: space-between;
+				justify-content: space-between;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				padding: 1em;
+			}
+				
+				#side-panel .details-grid .detail-item #detailArtist,
+				#side-panel .details-grid .detail-item #detailYear, 
+				#side-panel .details-grid .detail-item #detailLabel, 
+				#side-panel .details-grid .detail-item #detailCountry, 
+				#side-panel .details-grid .detail-item #detailFormat,
+				#side-panel .details-grid .detail-item #detailGenre,
+				#side-panel .details-grid .detail-item #detailStyle {
+					color: #ffffff;
+					font-weight: 700;
+				}

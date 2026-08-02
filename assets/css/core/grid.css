@@ -1,0 +1,91 @@
+/* Grids */
+
+	.grid {
+		display: grid;
+		column-gap: 1em;
+		row-gap: 1em;
+		margin-bottom: 5em;
+	}
+
+		.col-1 {
+			grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+		}
+
+		.col-4 {
+			grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+		}
+
+		.col-5 {
+			grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+		}
+
+		.col-6 {
+			grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.grid {
+				column-gap: 1em;
+				row-gap: 1em;
+			}
+
+				.col-4, .col-5, .col-6  {
+					grid-template-columns: 2fr 2fr;
+				}
+
+		}
+		
+		@media screen and (max-width: 480px) {
+			
+			.grid {
+				row-gap: 2em;
+			}
+			
+			#featuredAlbums.col-4 {
+				grid-template-columns: 1fr;
+			}
+			
+			#allVideos.col-4  {
+				grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+			}
+		
+		}
+
+	.featured .content:before {
+		background: #444;
+		content: "";
+		position: absolute;
+		height: 100%;
+		top: -0.3125em;
+		left: 50%;
+		width: 96%;
+		border-radius: 0.25em;
+		box-shadow: 0 -0.8125em 0 -0.5em #242424;
+		transform: translateX(-50%);
+	}
+
+	.stack1 {
+		background-color: #606060;
+		border-top: 1px solid #0f0f0f;
+		position: absolute;
+		top: -0.25em;
+		width: calc(100% - 0.625em);
+		height: 100%;
+		left: 0.3125em;
+		right: 0.3125em;
+		margin-top: -0.0625em;
+		border-radius: 0.75em;
+	}
+
+	.stack2 {
+		background-color: #606060;
+		opacity: 50%;
+		position: absolute;
+		top: -0.5em;
+		width: calc(100% - 1.5em);
+		height: 100%;
+		left: 0.75em;
+		right: 0.75em;
+		border-radius: 0.75em;
+	}

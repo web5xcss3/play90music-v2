@@ -1,0 +1,119 @@
+/* Section/Article */
+
+	section.special, article.special {
+		text-align: center;
+	}
+	
+	article#action {
+		margin-bottom: 2em;
+	}
+	
+	section .tab-content {
+		display: none;
+	}
+
+	section .tab-content.active {
+		display: block;
+		animation: fadeIn 0.5s ease-in-out;
+	}
+	
+	@keyframes fadeIn {
+		from { opacity: 0; transform: translateY(20px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+	
+	section .tab-content.active {
+		display: block;
+	}
+	
+
+	header h3, header p {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		line-height: 1.25em;
+		overflow: hidden;
+		white-space: normal;
+		font-weight: 700;
+		font-size: 1em;
+		margin: 0;
+	}
+
+	header.major {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		-moz-justify-content: space-between;
+		-webkit-justify-content: space-between;
+		-ms-justify-content: space-between;
+		justify-content: space-between;
+		margin: 0 0 2em 0;
+	}
+	
+		header.major.align-top {
+			margin: 2em 0 2em 0;
+		}
+
+		header.major h2 {
+			font-size: 2em;
+			margin: 0;
+		}
+
+			header.major h2:before {
+				margin-right: 0.25em
+			}
+			
+		header.major h3 {
+			font-size: 1.5em;
+		}
+
+		header.major p {
+			margin: 0;
+		}
+
+		header.major span {
+			font-weight: 300;
+		}
+
+		header.major > .slick-actions, 
+		header.major > .slick-actions > .slick-arrows {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			gap: 1em;
+		}
+
+		header.major.alt {
+			-moz-flex-direction: column;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-moz-align-items: -moz-flex-start;
+			-webkit-align-items: -webkit-flex-start;
+			-ms-align-items: -ms-flex-start;
+			align-items: flex-start;
+		}
+		
+/* ALT */
+	
+	#home header.major {
+		margin: 0 0 1em 0;
+	}
+		
+		@media screen and (max-width: 736px) {
+			
+			#home header.major {
+				margin: 0 0 0.5em 0;
+			}
+			
+		}

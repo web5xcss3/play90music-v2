@@ -1,0 +1,40 @@
+/* PWA */
+
+	.install-pwa-btn {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background-color: #333;
+		color: white;
+		border: none;
+		padding: 12px 18px;
+		font-size: 15px;
+		border-radius: 10px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+		cursor: pointer;
+		z-index: 9999;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		transition: all 0.3s ease;
+	}
+		
+		.install-pwa-btn .pwa-inner {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			gap: 1em;
+		}
+			
+			.install-pwa-btn .pwa-inner img {
+				height: 2em;
+			}
+
+		.install-pwa-btn:hover {
+			background-color: #555;
+		}

@@ -1,0 +1,82 @@
+/* TIPOGRAFIA */
+
+	h1, h2, h3, h4, h5, h6 {
+		color: #ffffff;
+		font-weight: 700;
+		line-height: 1.2;
+		margin-bottom: 0.8em;
+	}
+
+	h2 { font-size: 1.75rem; }
+	h3 { font-size: 1.25rem; }
+	h4 { font-size: 1.1rem; }
+	h5 { font-size: 0.9rem; }
+	h6 { font-size: 0.75rem; }
+
+	strong, b {
+		color: #ff0000;
+		font-weight: 700;
+	}
+
+	em, i {
+		font-style: italic;
+	}
+
+
+/* ELEMENTOS  */
+
+	img, picture, video, canvas, svg {
+		display: block;
+		max-width: 100%;
+	}
+
+	ul, ol {
+		list-style: none;
+	}
+
+	hr {
+		border: none;
+		border-bottom: 1px solid rgba(144,144,144,0.25);
+		margin: 2em 0;
+	}
+
+	blockquote {
+		border-left: 4px solid rgba(144,144,144,0.25);
+		padding-left: 1em;
+		font-style: italic;
+		margin-bottom: 2em;
+	}
+
+
+/* CODE */
+
+	code {
+		background: rgba(144,144,144,0.075);
+		border: 1px solid rgba(144,144,144,0.25);
+		border-radius: 6px;
+		padding: 0.2em 0.5em;
+		font-family: monospace;
+	}
+
+	pre {
+		overflow-x: auto;
+		margin-bottom: 2em;
+	}
+
+	pre code {
+		display: block;
+		padding: 1em;
+	}
+
+
+/* FORMULÁRIOS (CONTROLADO) */
+
+	input, button, textarea, select {
+		font: inherit;
+	}
+
+	button {
+		cursor: pointer;
+		border: none;
+		background: none;
+	}

@@ -1,0 +1,27 @@
+/* BASE */
+
+	body {
+		background: #030303;
+		color: #b4b4b4;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 16px;
+	}
+
+/* evita bugs em mobile */
+
+	body {
+		-webkit-text-size-adjust: 100%;
+	}
+
+
+/* LINKS  */
+
+	a {
+		color: #ff0000;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+		a:hover {
+			color: #ffffff;
+		}

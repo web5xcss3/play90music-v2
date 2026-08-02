@@ -5,7 +5,7 @@
     // ===================================
     // VERSION
     // ===================================
-    const VERSION = '1.0.14';
+    const VERSION = '1.0.15';
 
     // ===================================
     // CONFIG
@@ -90,7 +90,7 @@
     // APP
     // ===================================
     const APP = [
-        `${CDN_BASE}/assets/js/app.js`,
+        `${CDN_BASE}/assets/js/app.js?v=${VERSION}`,
         `${CDN_BASE}/assets/js/index.js`
     ];
 

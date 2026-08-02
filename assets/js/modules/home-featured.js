@@ -24,24 +24,24 @@
         const seen = new Set();
 
         const allItems = allItemsRaw
-            .filter(item => {
+			.filter(item => {
 
-                if (!item) return false;
+				if (!item) return false;
 
-                const key = [
-                    item.id,
-                    normalize(item.artist),
-                    normalize(item.title || item.name),
-                    normalize(item.embedUrl)
-                ].join('|');
+				const key = [
+					item.id,
+					normalize(item.artist),
+					normalize(item.title || item.name),
+					normalize(item.embedUrl)
+				].join('|');
+	
+				if (seen.has(key)) return false;
 
-                if (seen.has(key)) return false;
+				seen.add(key);
 
-                seen.add(key);
-
-                return true;
-            })
-            .sort((a, b) => (b.id || 0) - (a.id || 0));
+				return true;
+			})
+			.sort(() => Math.random() - 0.5);
 
         if (!allItems.length) {
             $container.html('');
@@ -80,8 +80,7 @@
             );
 
             selected = artistItems.length ?
-                artistItems :
-                [mainItem];
+                artistItems : [mainItem];
 
             localStorage.setItem(
                 indexKey,
@@ -112,33 +111,25 @@
         $container.html(selected.map(item => `
         <div class="daily-hero-slide">
             <article class="daily-hero-card avgYUV">
-
                 <div class="daily-hero-content">
-
                     <span class="daily-badge">DESTAQUE</span>
-
                     <h2>
                         ${escapeHtml(item.artist || '')}<br>
                         ${escapeHtml(item.title || item.name || '')}
                     </h2>
-
                     <p>Os clássicos que marcaram uma geração. Reviva agora!</p>
-
                     <button type="button" class="daily-play md-ripples ripples-light" data-id="${item.id || ''}" data-type="${item.type || 'featured'}">Ouvir agora</button>
-
                 </div>
-
                 <div class="daily-hero-image">
                     <img src="${item.image || ''}"alt="${escapeHtml(item.title || item.name || '')}" loading="lazy">
                 </div>
-
             </article>
         </div>
     `).join(''));
 
         if ($.fn.fillColor) {
             $container.find('.avgYUV').fillColor({
-                type: 'avgYUV'
+                type: 'avgYUV',
             });
         }
 
@@ -234,43 +225,19 @@
 
         $container.html(topArtists.map(artist => `
             <div class="top-artist-slide">
-
-                <article class="box post avg top-artist-card"
-                         data-artist="${escapeHtml(artist.name)}">
-
+                <article class="box post top-artist-card" data-artist="${escapeHtml(artist.name)}">
                     <div class="content">
-
-                        <div class="image fit md-ripples ripples-light">
-
-                            <img src="${artist.image}"
-                                 alt="${escapeHtml(artist.name)}"
-                                 loading="lazy">
-
+                        <div class="image circles fit md-ripples ripples-light">
+                            <img src="${artist.image}" alt="${escapeHtml(artist.name)}" loading="lazy">
                         </div>
-
-                        <ul class="icons">
-                            <li>
-                                <button type="button"
-                                        class="icon solid fa-play"></button>
-                            </li>
-                        </ul>
-
                     </div>
-
                     <header class="align-center">
-
-                        <h3 class="album-artist">
-                            ${escapeHtml(artist.name)}
-                        </h3>
-
-                        <p class="album-title">
-                            ${artist.albumCount} Álbuns
-                        </p>
-
+                        <h3 class="album-artist">${escapeHtml(artist.name)}</h3>
+						<!--
+                        <p class="album-title">${artist.albumCount} Álbuns</p>
+						-->
                     </header>
-
                 </article>
-
             </div>
         `).join(''));
 
@@ -284,16 +251,12 @@
 
             nextArrow: `
                 <ul class="icons">
-                    <li>
-                        <button type="button" class="icon solid fa-chevron-right md-ripples ripples-light"></button>
-                    </li>
+                    <li><button type="button" class="icon solid fa-chevron-right md-ripples ripples-light"></button></li>
                 </ul>`,
 
             prevArrow: `
                 <ul class="icons">
-                    <li>
-                        <button type="button" class="icon solid fa-chevron-left md-ripples ripples-light"></button>
-                    </li>
+                    <li><button type="button" class="icon solid fa-chevron-left md-ripples ripples-light"></button></li>
                 </ul>`,
 
             responsive: [{
@@ -319,12 +282,6 @@
             }]
         });
 
-        if ($.fn.fillColor) {
-            $container.find('.avg').fillColor({
-                type: 'avg'
-            });
-        }
-
         $container
             .find('.top-artist-card')
             .off('click')
@@ -336,6 +293,139 @@
                 switchTab('subalbums');
 
                 renderSubAlbumsByArtist(artist);
+            });
+    };
+
+    // =====================
+    // HOME TOP GENRES
+    // =====================
+    window.renderTopGenresHome = function() {
+
+        const $container = $('#topGenresHome');
+        const $title = $('#topGenresHomeTitle');
+
+        if (!$container.length) return;
+
+        if ($title.length) {
+            $title.text('Top Gêneros');
+        }
+
+        const featured = window.currentData?.featured || [];
+        const genres = window.mockGenres || [];
+
+        const normalizeStyle = str => normalize(str);
+
+        const getStyles = function(styleString) {
+            return String(styleString || '')
+                .split(',')
+                .map(style => normalizeStyle(style))
+                .filter(Boolean);
+        };
+
+        const counts = {};
+
+        featured.forEach(item => {
+            getStyles(item.style).forEach(style => {
+                counts[style] = (counts[style] || 0) + 1;
+            });
+        });
+
+        const topGenres = genres
+            .map(genre => {
+                const key = normalizeStyle(genre.name);
+
+                return {
+                    ...genre,
+                    count: counts[key] || 0
+                };
+            })
+            .filter(genre => genre.count > 0)
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 16);
+
+        if (!topGenres.length) {
+            $container.html('<p>Nenhum gênero encontrado.</p>');
+            return;
+        }
+
+        if ($container.hasClass('slick-initialized')) {
+            $container.slick('unslick');
+        }
+
+        $container.html(topGenres.map(genre => {
+
+            const image = genre.image || 'assets/images/music-default.webp';
+
+            return `
+            <div class="genre-card" data-genre="${escapeHtml(genre.name)}">
+                <article class="box post">
+                    <div class="content">
+                        <div class="image fit md-ripples ripples-light" data-position="center">
+                            <img src="${image}" alt="${escapeHtml(genre.name)}" loading="lazy" onerror="this.src='assets/images/music-default.webp'">
+                        </div>
+                    </div>
+                    <header class="align-center">
+                        <h3>${escapeHtml(genre.name)}</h3>
+						
+                        <p>${genre.count} músicas</p>
+						
+                    </header>
+                </article>
+            </div>
+        `;
+        }).join(''));
+
+        $container.slick({
+            focusOnSelect: true,
+            infinite: true,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            speed: 300,
+            appendArrows: $('#topGenresHome-slick-arrow'),
+
+            nextArrow: `
+            <ul class="icons">
+                <li><button type="button" class="icon solid fa-chevron-right md-ripples ripples-light"></button></li>
+            </ul>
+        `,
+
+            prevArrow: `
+            <ul class="icons">
+                <li><button type="button" class="icon solid fa-chevron-left md-ripples ripples-light"></button></li>
+            </ul>
+        `,
+
+            responsive: [{
+                breakpoint: 1280,
+                settings: {
+                    slidesToShow: 5
+                }
+            }, {
+                breakpoint: 980,
+                settings: {
+                    slidesToShow: 4
+                }
+            }, {
+                breakpoint: 736,
+                settings: {
+                    slidesToShow: 3
+                }
+            }, {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2
+                }
+            }]
+        });
+
+        $container
+            .find('.genre-card')
+            .off('click')
+            .on('click', function() {
+
+                const genreName = $(this).data('genre');
+
+                renderAlbumsByStyle(genreName);
             });
     };
 
@@ -368,44 +458,21 @@
         }
 
         $container.html(featuredDjs.map(item => `
-            <div class="album-card"
-                 data-id="${item.id || ''}">
-
+            <div class="album-card" data-id="${item.id || ''}">
                 <article class="box post">
-
                     <div class="content">
-
                         <div class="image fit md-ripples ripples-light">
-
-                            <img src="${item.image || ''}"
-                                 alt="${escapeHtml(item.artist || '')}"
-                                 loading="lazy">
-
+                            <img src="${item.image || ''}" alt="${escapeHtml(item.artist || '')}" loading="lazy">
                         </div>
-
                         <ul class="icons">
-                            <li>
-                                <button type="button"
-                                        class="icon solid fa-play"></button>
-                            </li>
+                            <li><button type="button" class="icon solid fa-play"></button></li>
                         </ul>
-
                     </div>
-
                     <header class="align-left">
-
-                        <h3 class="playlist-artist">
-                            ${escapeHtml(item.artist || '')}
-                        </h3>
-
-                        <p class="playlist-title">
-                            ${escapeHtml(item.title || '')}
-                        </p>
-
+                        <h3 class="playlist-artist">${escapeHtml(item.artist || '')}</h3>
+                        <p class="playlist-title">${escapeHtml(item.title || '')}</p>
                     </header>
-
                 </article>
-
             </div>
         `).join(''));
 

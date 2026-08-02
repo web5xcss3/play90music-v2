@@ -1,0 +1,271 @@
+/* XLarge */
+
+	@media screen and (max-width: 1680px) {
+
+		/* Basic */
+
+			body, input, select, textarea {
+				font-size: 12pt;
+			}
+
+	}
+
+/* Large */
+
+	@media screen and (max-width: 1280px) {
+
+		/* Basic */
+
+			body, input, select, textarea {
+				font-size: 11pt;
+			}
+
+	}
+
+/* Medium */
+
+	@media screen and (max-width: 980px) {
+
+		/* Basic */
+
+			html, body {
+				overflow-x: hidden;
+			}
+
+			body, input, select, textarea {
+				font-size: 12pt;
+			}
+
+			h2 br, h3 br, h4 br, h5 br, h6 br {
+				display: none;
+			}
+
+			header.major.alt {
+				-moz-align-items: center;
+				-webkit-align-items: center;
+				-ms-align-items: center;
+				align-items: center;
+			}
+			
+		/* Player Page */
+			
+			#player-page .content {
+				display: block;
+				overflow-y: scroll;
+				height: calc(100vh - 4em - 5em);
+				top: 4em;
+			}
+			
+		/* Main Panel */
+
+			#main-panel {
+				width: 100%;
+				margin-bottom: 1em;
+			}
+
+				#main-panel .player-embed {
+					border-radius: 0.5em;
+					height: 60vh;
+				}
+
+					#main-panel .player-embed iframe {
+						border-radius: 0.5em;
+					}
+				
+		/* Side Panel */
+
+			#side-panel {
+				width: 100%;
+				margin: 0;
+			}
+
+	}
+
+/* Small */
+
+	@media screen and (max-width: 736px) {
+
+		/* Basic */
+
+			body, input, select, textarea {
+				font-size: 12pt;
+			}
+
+			h2 {
+				font-size: 1.25em;
+				line-height: 1.5em;
+			}
+
+			h3 {
+				font-size: 1.1em;
+				line-height: 1.5em;
+			}
+
+			h4 {
+				font-size: 1em;
+				line-height: 1.5em;
+			}
+
+		/* Section/Article */
+
+			header.major h2 {
+				font-size: 1.5em;
+			}
+
+			header.major span {
+				font-size: 1.25em;
+			}
+
+		/* Icons */
+
+			ul.icons li {
+				padding: 0 0.75em 0 0;
+			}
+			
+				ul.icons li .icon {
+					font-size: 1em;
+				}
+
+		/* Wrapper */
+
+			.wrapper {
+				padding: 1em;
+			}
+
+				.wrapper.align-top {
+					padding-top: 1em;
+				}
+				
+				.wrapper.style {
+					padding: 1em 0;
+				}
+				
+		/* Header */
+
+			#header {
+				padding: 0.5em 1em;
+			}
+			
+				#header .logo ul.icons {
+					display: none;
+				}
+
+				#header nav#search {
+					display: none;
+					position: fixed;
+					left: 0;
+					top: 0;
+					width: 100%;
+					z-index: 10000;
+					padding: 0.5em
+				}
+
+					#header nav > ul > li.alt {
+						display: inline-block;
+					}
+
+						#header nav#search ul li form {
+							background-color: #030303;
+							border-radius: 0.5em
+						}
+
+		/* Menu */
+
+			#menu {
+				-moz-transform: translateX(0);
+				-webkit-transform: translateX(0);
+				-ms-transform: translateX(0);
+				transform: translateX(0);
+				visibility: visible;
+				position: relative;
+				width: 100%;
+				border: 0;
+				z-index: 2;
+			}
+
+				#menu ul.menu {
+					display: -moz-flex;
+					display: -webkit-flex;
+					display: -ms-flex;
+					display: flex;
+					-moz-align-items: center;
+					-webkit-align-items: center;
+					-ms-align-items: center;
+					align-items: center;
+					-moz-justify-content: space-between;
+					-webkit-justify-content: space-between;
+					-ms-justify-content: space-between;
+					justify-content: space-between;
+					gap: 1em;
+					margin: 0;
+				}
+
+					#menu ul.menu li {
+						margin: 0;
+						padding: 0;
+						width: 100%
+					}
+
+						#menu ul.menu > li button {
+							-moz-flex-direction: row;
+							-webkit-flex-direction: row;
+							-ms-flex-direction: row;
+							flex-direction: row;
+							-moz-justify-content: center;
+							-webkit-justify-content: center;
+							-ms-justify-content: center;
+							justify-content: center;
+							height: 3em;
+							width: 100%;
+							padding: 0.5em;
+						}
+
+							#menu ul > li button span {
+								font-size: 1em;
+								margin-left: 0.5em;
+							}
+
+		/* Player */
+
+			body.is-menu-visible #main, 
+			body.is-menu-visible #relatedContainer, 
+			body.is-menu-visible #player-page .content {
+				margin-left: 0;
+			}
+
+	}
+
+/* XSmall */
+
+	@media screen and (max-width: 480px) {
+
+		/* Basic */
+
+			html, body {
+				min-width: 320px;
+			}
+
+			body, input, select, textarea {
+				font-size: 12pt;
+			}
+
+		/* Menu */
+
+			ul.menu {
+				line-height: 2em;
+			}
+
+				ul.menu li {
+					border: 0;
+					margin: 0;
+				}
+				
+			#header nav > ul.icons li .button {
+				font-size: 0.8em;
+			}
+				
+			#featuredAlbums .image.fit {
+				padding-top: 56.25%;
+			}
+
+	}

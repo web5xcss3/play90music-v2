@@ -1,0 +1,10 @@
+/* UTILIDADES */
+
+	.align-left { text-align: left; }
+	.align-center { text-align: center; }
+	.align-right { text-align: right; }
+	.align-middle { margin: 1.5em 0; }
+
+	.no-select {
+		user-select: none;
+	}

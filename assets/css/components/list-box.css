@@ -1,0 +1,51 @@
+/* List */
+	
+	.list {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+		.list .box {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			background-color: transparent;
+			margin: 0;
+			padding: 0.5em;
+		}
+
+			.list .box:hover {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+
+			.list .box .image {
+				-webkit-flex: 0 0 5em;
+				-moz-flex: 0 0 5em;
+				-ms-flex: 0 0 5em;
+				flex: 0 0 5em;
+				width: 5em;
+				height: 5em;
+				padding: 0;
+				margin: 0 1em 0 0;
+			}
+
+				.list .box .image:after {
+					display: none
+				}
+
+			.list .box header h3, .list .box header p {
+				line-height: 1.25em;
+				font-size: 1em;
+				margin: 0;
+			}

@@ -1,0 +1,27 @@
+/* CTA */
+
+	#cta {
+		text-align: center;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+		#cta .icon.fa-record-vinyl {
+			font-size: 5em;
+			margin: 0 0 0.25em 0;
+		}
+
+		#cta p {
+			font-size: 1.25em;
+			font-weight: 700;
+		}

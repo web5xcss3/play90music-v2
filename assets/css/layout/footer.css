@@ -1,0 +1,14 @@
+/* Footer */
+
+	#footer {
+		color: #949494;
+		text-align: center;
+	}
+
+		#footer .menu a {
+			color: inherit;
+		}
+
+		#footer .copyright {
+			font-size: 0.8em;
+		}

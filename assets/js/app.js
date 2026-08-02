@@ -83,7 +83,7 @@ function Header() {
 				<nav id="nav">
 					<ul class="icons">
 						<li class="alt"><button type="button" class="icon solid fa-magnifying-glass md-ripples ripples-light"></button></li>
-						<li><button type="button" id="openSubmitAlbum" class="upload-album-btn button">Enviar Álbum</button></li>
+						<li><button type="button" id="openSubmitAlbum" class="upload-album-btn icon solid fa-upload"></button></li>
 						<li>
 							<button type="button" class="toggle-dropdown icon solid fa-ellipsis-vertical md-ripples ripples-light"></button>
 							<ul class="dropotron level-0">
@@ -151,17 +151,6 @@ function HomeContent() {
 						<div id="daily-slick-arrow" class="daily-hero-nav"></div>
 					</div>
 				</section>
-				
-			<!-- Videos Home -->
-				<section class="wrapper style">
-					<header class="major">
-						<h2 id="homeVideosTitle"></h2>
-						<div class="slick-actions">
-							<div id="homeVideos-slick-arrow" class="slick-arrows"></div>
-						</div>
-					</header>
-					<div id="homeVideos"></div>
-				</section>
             
 			<!-- Arists Home -->
 				<section class="wrapper style top-artists-section">
@@ -173,6 +162,17 @@ function HomeContent() {
 					</header>
 					<div id="topArtistsHome"></div>
 				</section>
+				
+			<!-- Genres Home -->
+				<section class="wrapper style">
+					<header class="major">
+						<h2 id="topGenresHomeTitle"></h2>
+						<div class="slick-actions">
+							<div id="topGenresHome-slick-arrow" class="slick-arrows"></div>
+						</div>
+					</header>
+					<div id="topGenresHome"></div>
+				</section>
 
             <!-- DJS -->
 				<section class="wrapper style">
@@ -183,6 +183,17 @@ function HomeContent() {
 						</div>
 					</header>
 					<div id="featuredDjs"></div>
+				</section>
+				
+			<!-- Videos Home -->
+				<section class="wrapper style">
+					<header class="major">
+						<h2 id="homeVideosTitle"></h2>
+						<div class="slick-actions">
+							<div id="homeVideos-slick-arrow" class="slick-arrows"></div>
+						</div>
+					</header>
+					<div id="homeVideos"></div>
 				</section>
             
             <!-- Recent -->
@@ -236,40 +247,103 @@ function ArtistsContent() {
 
 // Artists Component
 function suballAlbumsContent() {
-    return `
-	<section id="subalbums" class="tab-content">
+  return `
+    <section id="subalbums" class="tab-content">
 
-		<main class="artist-page column">
+      <main class="play90-artist-page">
 
-			<!-- LEFT -->
-			<div class="artist-left">
-				<img id="artistImage" src="" alt="">
-				<header="align-left">
-					<h2 id="artistName"></h2>
-					<p id="artist-bio"></p>
-					<ul class="actions align-middle">
-						<li><button type="button" id="playMusic" class="button small md-ripples ripples-light">Music</button></li>
-						<li><button type="button" id="playVideos" class="button small md-ripples ripples-light">Videos</button></li>
-						<li><button type="button" id="playLyrics" class="button small md-ripples ripples-light">Lyrics</button></li>
-					</ul>
-				</header>
+        <!-- BACKGROUND GLOBAL -->
+        <div class="play90-artist-bg">
+          <img id="artistImageBg" src="" alt="">
+        </div>
+
+        <div class="play90-artist-overlay"></div>
+
+        <!-- HERO -->
+        <section class="play90-artist-hero">
+
+          <div class="artist-cover">
+            <img id="artistImage" src="" alt="">
+          </div>
+
+          <div class="artist-details">
+
+            <span class="artist-label">Eurodance Artist</span>
+
+            <h1 id="artistName"></h1>
+
+            <div class="artist-meta">
+				<span id="artistCountry"></span>
+					<span>•</span>
+				<span id="artistStyle"></span>
+					<span>•</span>
+				<span id="artistYear"></span>
+					<span>•</span>
+				<span id="artistLabel"></span>
 			</div>
 
-			<!-- RIGHT -->
-			<div class="artist-right">
-				<header class="major">
-					<h2 id="subalbumsTitle"></h2>
-					<ul class="actions">
-						<li><button type="button" id="backToArtistsBtn" class="button icon solid fa-arrow-left md-ripples ripples-light">Voltar</button></li>
-					</ul>
-				</header>
-				<div id="suballAlbums" class="album-list"></div>
-			</div>
+            <p id="artist-bio"></p>
 
-		</main>
+            <ul class="artist-buttons">
+				<li><button type="button" id="backToArtistsBtn" class="button icon solid fa-arrow-left md-ripples ripples-light">Voltar</button></li>
+				<li><button type="button" id="playMusic" class="button icon solid fa-play primary md-ripples ripples-light">Ouvir agora</button></li>
+				<li><button type="button" id="playVideos" class="button icon solid fa-video md-ripples ripples-light">Vídeos</button></li>
+				<li><button type="button" id="playLyrics" class="button icon solid fa-align-left md-ripples ripples-light">Letras</button></li>
+            </ul>
 
-	</section>
-	`;
+            <div class="artist-stats">
+				<div class="stat-card">
+					<i class="icon solid fa-chart-simple"></i>
+					<div class="card-info">
+						<strong id="artistAlbums">0</strong>
+						<span>Álbuns</span>
+					</div>
+				</div>
+
+				<div class="stat-card">
+					<i class="icon solid fa-compact-disc"></i>
+					<div class="card-info">
+						<strong id="artistSingles">0</strong>
+						<span>Singles</span>
+					</div>
+				</div>
+
+				<div class="stat-card">
+					<i class="icon solid fa-record-vinyl"></i>
+					<div class="card-info">
+						<strong id="artistVinyls">0</strong>
+						<span>Vinyls</span>
+					</div>
+				</div>
+
+				<div class="stat-card">
+					<i class="icon solid fa-calendar-days"></i>
+					<div class="card-info">
+						<strong id="artistFirstYear">----</strong>
+						<span>Ano</span>
+					</div>
+				</div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- CONTENT -->
+        <section class="play90-artist-content">
+
+          <header class="major artist-section-header">
+            <h2 id="subalbumsTitle"></h2>
+          </header>
+
+		  <div id="suballAlbums" class="artist-release-grid"></div>
+
+        </section>
+
+      </main>
+
+    </section>
+  `;
 }
 
 // Timeline Component
@@ -297,7 +371,7 @@ function timelineContent() {
 					<header class="major">
 						<h2 id="genresTitle"></h2>
 					</header>
-					<div id="AllGenres" class="grid col-4"></div>
+					<div id="AllGenres" class="grid col-5"></div>
 				</div>
 			</section>
 			
@@ -460,7 +534,7 @@ function videosContent() {
 					</ul>
 				</header>
 
-				<div id="allVideos" class="grid col-6"></div>
+				<div id="allVideos" class="grid col-4"></div>
 			</div>
 			
 			<div class="yt-videos-artist-albums wrapper style">
@@ -523,7 +597,7 @@ function submitAlbumContent() {
 
                 <form id="publicSubmitForm" enctype="multipart/form-data">
 
-                    <div class="form-group">
+                    <div class="form-group select-box">
                         <label for="publicType">Categoria</label>
                         <select id="publicType" name="type" required>
                             <option value="albums">Albums</option>
@@ -534,6 +608,7 @@ function submitAlbumContent() {
                             <option value="playlists">Playlists</option>
                             <option value="instrumental">Instrumental</option>
                         </select>
+						<i class="fa-solid fa-chevron-down"></i>
                     </div>
 
                     <div class="form-group">
@@ -550,29 +625,32 @@ function submitAlbumContent() {
                         <label for="publicEmbedUrl">Embed URL</label>
                         <input type="url" id="publicEmbedUrl" name="embedUrl" placeholder="https://audiomack.com/embed/..." required>
                     </div>
-
-                    <div class="form-group full">
-						<label>Imagem do Artista</label>
-						<label for="publicArtistImage" class="upload-zone">
-							<div class="upload-icon"><i class="fa fa-user"></i></div>
-							<h4>Adicionar imagem do artista</h4>
-							<p>PNG, JPG ou WEBP</p>
-							<img id="publicArtistImagePreview" class="upload-preview">
-						</label>
-						<input type="file" id="publicArtistImage" name="artistImage" accept="image/*"hidden>
-					</div>
-
+					
 					<div class="form-group full">
-						<label>Capa do Álbum</label>
-						<label for="publicImage" class="upload-zone">
-							<div class="upload-icon"><i class="fa fa-image"></i></div>
-							<h4>Adicionar capa do álbum</h4>
-							<p>Mínimo 500x500 pixels</p>
-							<img id="publicAlbumImagePreview" class="upload-preview">
-						</label>
-						<input type="file" id="publicImage" name="image" accept="image/*"hidden required>
-					</div>
+						<div class="form-group-image">
+							<div class="image-group-artist">
+								<label>Imagem do Artista</label>
+								<label for="publicArtistImage" class="upload-zone">
+									<div class="upload-icon"><i class="fa fa-user"></i></div>
+									<h4>Adicionar imagem do artista</h4>
+									<p>PNG, JPG ou WEBP</p>
+									<img id="publicArtistImagePreview" class="upload-preview">
+								</label>
+								<input type="file" id="publicArtistImage" name="artistImage" accept="image/*"hidden>
+							</div>
 
+							<div class="image-group-album">
+								<label>Capa do Álbum</label>
+								<label for="publicImage" class="upload-zone">
+									<div class="upload-icon"><i class="fa fa-image"></i></div>
+									<h4>Adicionar capa do álbum</h4>
+									<p>Mínimo 500x500 pixels</p>
+									<img id="publicAlbumImagePreview" class="upload-preview">
+								</label>
+								<input type="file" id="publicImage" name="image" accept="image/*"hidden required>
+							</div>
+						</div>
+					</div>
                     <div class="form-group">
                         <label for="publicYear">Ano</label>
                         <input type="text" id="publicYear" name="year" placeholder="1995">

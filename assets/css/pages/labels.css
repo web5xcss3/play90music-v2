@@ -1,0 +1,30 @@
+/* Label Artists Lists */
+		
+	#labelArtistsList {
+		position: relative;
+		margin-bottom: 2em;
+	}
+		
+		#labelArtistsList .no-artists-found {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			-moz-flex-direction: column;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			position: absolute;
+			font-size: 1.5em;
+			left: 0;
+			width: 100%;
+		}
+			
+			#labelArtistsList .no-artists-found:before {
+				font-size: 2.5em;
+				margin-bottom: 0.25em;
+			}

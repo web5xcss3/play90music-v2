@@ -1,0 +1,25 @@
+/* Timeline Card */
+	
+	#timeline .timeline-card {
+		-moz-transition: background-color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out;
+		background-color: rgba(255,255,255,0.1);
+		border-radius: 0.5em;
+		text-align: center;
+		padding: 1em;
+		cursor: pointer;
+	}
+
+		#timeline .timeline-card:hover {
+			background-color: rgba(255,255,255,0.2)
+		}
+	
+		#timeline .timeline-card h3, #timeline .timeline-card p {
+			margin: 0
+		}
+
+		#timeline .timeline-card h3 {
+			font-size: 2em
+		}

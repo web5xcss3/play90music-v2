@@ -1,0 +1,26 @@
+/* Genres */
+
+	#genres {
+		padding: 2em 0;
+	}
+
+/* Genres Grid */
+	#AllGenres .genre-card {
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		background-color: #141414;
+		border-radius: 0.5em;
+		padding: 1em;
+		text-align: center;
+		cursor: pointer;
+	}
+
+		#AllGenres .genre-card:hover {
+			background-color: #212121;
+		}
+
+		#AllGenres .genre-card header h3 {
+			font-size: 1.25em;
+		}

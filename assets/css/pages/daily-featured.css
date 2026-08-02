@@ -1,0 +1,143 @@
+/* Daily Featured */
+
+.daily-hero-card {
+	background-attachment: fixed;
+	background-image: url("https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2/assets/images/vinyl.avif");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    position: relative;
+    min-height: 280px;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+}
+
+.daily-hero-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(5,5,15,.95) 0%, rgba(5,5,15,.75) 38%, rgba(5,5,15,.25) 70%),
+        radial-gradient(circle at right, rgba(0,180,255,.35), transparent 45%);
+    z-index: 1;
+}
+
+.daily-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 50%;
+}
+
+.daily-badge {
+    color: #ff0050;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.daily-hero-content h2 {
+    margin: 10px 0;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: .95;
+    color: #fff;
+    text-wrap: balance;
+}
+
+.daily-hero-content p {
+    color: rgba(255,255,255,.72);
+    font-size: 1.25rem;
+    max-width: 320px;
+}
+
+.daily-play {
+    margin-top: 18px;
+    border: 0;
+    border-radius: 8px;
+    padding: 14px 28px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ce0035, #81008d);
+    cursor: pointer;
+}
+
+.daily-hero-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.daily-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: transform .6s ease;
+}
+
+.daily-hero-card:hover .daily-hero-image img {
+    transform: scale(1.12);
+}
+
+.daily-hero-slide {
+    padding: 4px;
+}
+
+.daily-slider-wrap {
+    position: relative;
+}
+
+.daily-hero-nav {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+}
+
+.daily-arrow {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.daily-arrow:hover {
+    transform: scale(1.08);
+    background: #eb5c9a;
+    border-color: rgba(255,0,180,.45);
+}
+
+@media (max-width: 736px) {
+    .daily-hero-card {
+        min-height: 420px;
+        padding: 28px;
+        align-items: flex-end;
+    }
+
+    .daily-hero-content {
+        max-width: 100%;
+    }
+
+    .daily-hero-image {
+        width: 100%;
+        opacity: .75;
+    }
+
+    .daily-hero-card::after {
+        background: linear-gradient(180deg, rgba(5,5,15,.25), rgba(5,5,15,.95));
+    }
+}

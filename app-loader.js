@@ -5,7 +5,7 @@
     // ===================================
     // VERSION
     // ===================================
-    const VERSION = '1.0.15';
+    const VERSION = '1.0.16';
 
     // ===================================
     // CONFIG
@@ -70,7 +70,7 @@
     // RENDERS
     // ===================================
     const RENDERS = [
-        `${CDN_BASE}/assets/js/modules/render-artists.js`,
+        `${CDN_BASE}/assets/js/modules/render-artists.js?v=${VERSION}`,
         `${CDN_BASE}/assets/js/modules/artist-media.js`,
         `${CDN_BASE}/assets/js/modules/render-albums.js`,
         `${CDN_BASE}/assets/js/modules/render-labels.js`,

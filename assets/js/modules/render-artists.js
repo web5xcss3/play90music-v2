@@ -149,7 +149,10 @@
 
         // efeito visual
         $container.find('.avg').fillColor({
-            type: 'avg'
+            type: 'gradientYUV',
+			opacity: 0.99,
+			gradientOpacityEnd: 0.5,
+			angle: 180
         });
 
         if (typeof setupBannerFillColorEvents === 'function') {
@@ -176,13 +179,9 @@
         $container.append(`
         <div class="artist-card loadmore-artist-card">
             <article class="box post loadmore-post">
-                <button id="loadMoreArtists"
-                        type="button"
-                        class="loadmore-card-button md-ripples ripples-light">
-
-                    <span class="loadmore-plus">
-                        <i class="icon solid fa-plus"></i>
-                    </span>
+                <button id="loadMoreArtists" type="button" class="loadmore-card-button md-ripples ripples-light">
+				
+                    <span class="loadmore-plus"><i class="icon solid fa-plus"></i></span>
 
                     <strong>Adicionar mais</strong>
                     <small>Artistas</small>
@@ -272,14 +271,43 @@
 
         const firstAlbum = albums[0];
 
-        if ($artistImage.length && firstAlbum) {
-            $artistImage.attr(
-                'src',
+        const countBy = keyword => albums.filter(item => {
+            const type = String(item.type || '').toLowerCase();
+            const format = String(item.format || '').toLowerCase();
+
+            return type.includes(keyword) || format.includes(keyword);
+        }).length;
+
+        $('#artistAlbums').text(countBy('album'));
+        $('#artistSingles').text(countBy('single'));
+        $('#artistVinyls').text(countBy('vinyl'));
+
+        const years = albums
+            .map(item => parseInt(item.year, 10))
+            .filter(Boolean);
+
+        $('#artistFirstYear').text(years.length ? Math.min(...years) : '----');
+
+        const artistImageUrl = firstAlbum ?
+            (
                 firstAlbum.artistImage ||
                 firstAlbum.image ||
                 'https://i.ibb.co/m5Cb336C/music-default.jpg'
-            );
-        }
+            ) :
+            'https://i.ibb.co/m5Cb336C/music-default.jpg';
+
+        $('#artistImage').attr('src', artistImageUrl);
+        $('#artistImageBg').attr('src', artistImageUrl);
+
+        const country = firstAlbum?.country || 'País desconhecido';
+        const style = firstAlbum?.style || firstAlbum?.genre || 'Estilo desconhecido';
+        const year = firstAlbum?.year ? 'Desde ' + firstAlbum.year : 'Ano desconhecido';
+        const label = firstAlbum?.label || 'Gravadora desconhecida';
+
+        $('#artistCountry').text(country);
+        $('#artistStyle').text(style);
+        $('#artistYear').text(year);
+        $('#artistLabel').text(label);
 
         if (!albums.length) {
             $container.html(`
@@ -297,27 +325,19 @@
             const albumType = album.type || 'featured';
 
             return `
-            <div 
-                class="album-card md-ripples ripples-light" 
-                data-id="${album.id || ''}" 
-                data-type="${albumType}"
-            >
+            <div class="album-card" data-id="${album.id || ''}" data-type="${albumType}">
                 <article class="box post">
-                    <div class="image fit" data-position="center">
-                        <img 
-                            src="${album.image || ''}" 
-                            alt="${escapeHtml(album.title || album.name || '')}" 
-                            loading="lazy">
-                    </div>
-
-                    <header class="song-info">
-                        <h3 class="album-title">
-                            ${escapeHtml(album.title || album.name || '')}
-                        </h3>
-
-                        <span class="album-artist">
-                            ${escapeHtml(album.artist || '')}
-                        </span>
+					<div class="content">
+						<div class="image fit md-ripples ripples-light" data-position="center">
+							<img src="${album.image || ''}" alt="${escapeHtml(album.title || album.name || '')}" loading="lazy">
+						</div>
+						<ul class="icons">
+							<li><button type="button" class="icon solid fa-play"></button></li>
+						</ul>
+					</div>
+                    <header class="align-left">
+                        <h3 class="album-title">${escapeHtml(album.artist || album.name || '')}</h3>
+						<p class="album-artist">${escapeHtml(album.title || '')}</p>
                     </header>
                 </article>
             </div>

@@ -2,9 +2,9 @@
 
     "use strict";
 
-    // =========================
+    // ==========================
     // GENRES ALBUMS STATE
-    // =========================
+    // ==========================
     let genresAlbumsData = [];
     let genresAlbumsVisible = 0;
     const genresAlbumsPerLoad = 11;
@@ -63,30 +63,23 @@
 
         $container.html(sortedGenres.map(genre => {
 
-            const imagePath = genre.image || 'assets/images/music-default.webp';
-
-            const image = typeof resolveAsset === 'function' ?
-                resolveAsset(imagePath) :
-                imagePath;
+            const image = genre.image || 'assets/images/music-default.webp';
 
             return `
-        <div class="genre-card md-ripples ripples-light"
-             data-genre="${escapeHtml(genre.name)}">
+			<div class="genre-card md-ripples ripples-light" data-genre="${escapeHtml(genre.name)}">
+				<article class="box post">
+					<div class="content">
+						<div class="image fit md-ripples ripples-light" data-position="center">
+							<img src="${image}" alt="${escapeHtml(genre.name)}" loading="lazy" onerror="this.src='assets/images/music-default.webp'">
+						</div>
+					</div>
+					<header class="align-center">
+						<h3>${escapeHtml(genre.name)}</h3>
+					</header>
+				</article>
+			</div>
+		`;
 
-            <article class="box post">
-                <div class="content">
-                    <div class="image fit md-ripples ripples-light" data-position="center">
-                        <img
-                            src="${image}" alt="${escapeHtml(genre.name)}" loading="lazy">
-                    </div>
-                </div>
-
-                <header class="align-center">
-                    <h3>${escapeHtml(genre.name)}</h3>
-                </header>
-            </article>
-        </div>
-    `;
         }).join(''));
 
         $container
@@ -188,30 +181,16 @@
             }
 
             return `
-                <div class="album-card"
-                     data-id="${album.id}"
-                     data-type="${albumType}">
-
+                <div class="album-card" data-id="${album.id}" data-type="${albumType}">
                     <article class="box post">
                         <div class="content">
-
-                            <div class="image fit md-ripples ripples-light"
-                                 data-position="center">
-
-                                <img src="${album.image || ''}"
-                                     alt="${escapeHtml(album.title || '')}"
-                                     loading="lazy">
-
+                            <div class="image fit md-ripples ripples-light" data-position="center">
+                                <img src="${album.image || ''}" alt="${escapeHtml(album.title || '')}" loading="lazy">
                             </div>
-
                             <ul class="icons">
-                                <li>
-                                    <button type="button"
-                                            class="icon solid fa-play"></button>
-                                </li>
+                                <li><button type="button" class="icon solid fa-play"></button></li>
                             </ul>
                         </div>
-
                         <header class="align-left">
                             <h3>${escapeHtml(album.artist || '')}</h3>
                             <p>${escapeHtml(album.title || '')}</p>
@@ -296,5 +275,7 @@
 
             loadMoreGenresAlbums();
         });
+		
+	
 
 })(jQuery);

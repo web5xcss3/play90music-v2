@@ -149,7 +149,10 @@
 
         // efeito visual
         $container.find('.avg').fillColor({
-            type: 'avg',
+            type: 'gradientYUV',
+			opacity: 0.99,
+			gradientOpacityEnd: 0.5,
+			angle: 180
         });
 
         if (typeof setupBannerFillColorEvents === 'function') {

@@ -32,8 +32,8 @@
 	// ANALYTICS
 	// ===================================
 	const ANALYTICS = [
-		`${CDN_BASE}/assets/js/core/play90-events.js?v=${VERSION}`,
-		`${CDN_BASE}/assets/js/modules/analytics.js?v=${VERSION}`
+		`${CDN_BASE}/assets/js/core/play90-events.js`,
+		`${CDN_BASE}/assets/js/modules/analytics.js`
 	];
 
     // ===================================

@@ -2,194 +2,74 @@
 
     "use strict";
 
-    // ===================================
-    // VERSION
-    // ===================================
-    const VERSION = '1.0.19';
+    const scripts = [
+        // Base
+        'assets/js/jquery.scrollgress.min.js',
+        'assets/js/breakpoints.min.js',
+        'slick/slick.min.js',
+        'assets/js/ripples.js',
+        'assets/js/fillcolor.js',
 
-    // ===================================
-    // CONFIG
-    // ===================================
-    const CDN_BASE =
-        'https://cdn.jsdelivr.net/gh/web5xcss3/play90music-v2@main';
+        // Template
+        'assets/js/main.js',
 
-    // ===================================
-    // Config
-    // ===================================
-    window.APP_VERSION = VERSION;
-    window.CDN_BASE = CDN_BASE;
+        // Core modules
+        'assets/js/modules/helpers.js',
+        'assets/js/modules/api.js',
+        'assets/js/modules/ui-effects.js',
+        'assets/js/modules/tabs.js',
+        'assets/js/modules/player.js',
+        'assets/js/modules/recently-played.js',
+		
+		// Event System + Analytics
+		'assets/js/core/play90-events.js',
+		'assets/js/modules/analytics.js',
 
-    // ===================================
-    // CSS
-    // ===================================
-    const STYLES = [
-        `${CDN_BASE}/assets/slick/slick.css`,
-        `${CDN_BASE}/assets/css/main.css`
+        // Render modules
+        'assets/js/modules/render-artists.js',
+		'assets/js/modules/artist-media.js',
+        'assets/js/modules/render-albums.js',
+        'assets/js/modules/render-labels.js',
+        'assets/js/modules/render-genres.js',
+        'assets/js/modules/render-timeline.js',
+        'assets/js/modules/render-singles.js',
+        'assets/js/modules/render-vinyls.js',
+        'assets/js/modules/render-djs.js',
+        'assets/js/modules/render-instrumental.js',
+        'assets/js/modules/render-music.js',
+        'assets/js/modules/render-playlists.js',
+        'assets/js/modules/render-videos.js',
+        'assets/js/modules/home-featured.js',
+
+        // App
+        'assets/js/app.js',
+        'assets/js/index.js',
+
+        // Extras
+        'assets/js/jquery.fullscreen.min.js',
+        'assets/js/jquery.fullscreen.init.js'
     ];
 
-    // ===================================
-    // BASE
-    // ===================================
-    const BASE = [
-        `${CDN_BASE}/assets/js/jquery.min.js`,
-        `${CDN_BASE}/assets/js/jquery.scrollgress.min.js`,
-        `${CDN_BASE}/assets/js/breakpoints.min.js`,
-        `${CDN_BASE}/assets/slick/slick.min.js`,
-        `${CDN_BASE}/assets/js/ripples.js`,
-        `${CDN_BASE}/assets/js/fillcolor.js?v=${VERSION}`,
-    ];
-
-    // ===================================
-	// ANALYTICS
-	// ===================================
-	const ANALYTICS = [
-		`${CDN_BASE}/assets/js/core/play90-events.js`,
-		`${CDN_BASE}/assets/js/modules/analytics.js`
-	];
-
-    // ===================================
-    // TEMPLATE
-    // ===================================
-    const TEMPLATE = [
-        `${CDN_BASE}/assets/js/main.js`
-    ];
-
-    // ===================================
-    // CORE
-    // ===================================
-    const CORE = [
-        `${CDN_BASE}/assets/js/modules/helpers.js?v=${VERSION}`,
-        `${CDN_BASE}/assets/js/modules/api.js`,
-        `${CDN_BASE}/assets/js/modules/ui-effects.js`,
-        `${CDN_BASE}/assets/js/modules/tabs.js?v=${VERSION}`,
-        `${CDN_BASE}/assets/js/modules/player.js`,
-        `${CDN_BASE}/assets/js/modules/recently-played.js`
-    ];
-
-    // ===================================
-    // RENDERS
-    // ===================================
-    const RENDERS = [
-        `${CDN_BASE}/assets/js/modules/render-artists.js?v=${VERSION}`,
-        `${CDN_BASE}/assets/js/modules/artist-media.js`,
-        `${CDN_BASE}/assets/js/modules/render-albums.js`,
-        `${CDN_BASE}/assets/js/modules/render-labels.js`,
-        `${CDN_BASE}/assets/js/modules/render-genres.js?v=${VERSION}`,
-        `${CDN_BASE}/assets/js/modules/render-timeline.js`,
-        `${CDN_BASE}/assets/js/modules/render-singles.js`,
-        `${CDN_BASE}/assets/js/modules/render-vinyls.js`,
-        `${CDN_BASE}/assets/js/modules/render-djs.js`,
-        `${CDN_BASE}/assets/js/modules/render-instrumental.js`,
-        `${CDN_BASE}/assets/js/modules/render-music.js`,
-        `${CDN_BASE}/assets/js/modules/render-playlists.js`,
-        `${CDN_BASE}/assets/js/modules/render-videos.js`,
-        `${CDN_BASE}/assets/js/modules/home-featured.js?v=${VERSION}`
-    ];
-
-    // ===================================
-    // APP
-    // ===================================
-    const APP = [
-        `${CDN_BASE}/assets/js/app.js?v=${VERSION}`,
-        `${CDN_BASE}/assets/js/index.js`
-    ];
-
-    // ===================================
-    // EXTRAS
-    // ===================================
-    const EXTRAS = [
-        `${CDN_BASE}/assets/js/jquery.fullscreen.min.js`,
-        `${CDN_BASE}/assets/js/jquery.fullscreen.init.js`
-    ];
-
-    // ===================================
-    // LOAD CSS
-    // ===================================
-    function loadCss(href) {
-
-        return new Promise(resolve => {
-
-            const link = document.createElement('link');
-
-            link.rel = 'stylesheet';
-            link.href = href;
-
-            link.onload = resolve;
-
-            document.head.appendChild(link);
-        });
-    }
-
-    // ===================================
-    // LOAD JS
-    // ===================================
     function loadScript(src) {
-
         return new Promise((resolve, reject) => {
-
             const script = document.createElement('script');
 
             script.src = src;
-            script.async = false;
-
-            script.onload = function() {
-                console.log('✅', src);
-                resolve();
-            };
-
-            script.onerror = function() {
-                console.error('❌', src);
-                reject(src);
-            };
+            script.onload = resolve;
+            script.onerror = () => reject(new Error('Erro ao carregar: ' + src));
 
             document.body.appendChild(script);
         });
     }
 
-    // ===================================
-    // LOAD GROUP
-    // ===================================
-    async function loadGroup(name, files) {
-
-        console.log(`📦 ${name}`);
-
-        for (const file of files) {
-            await loadScript(file);
+    async function loadAllScripts() {
+        for (const src of scripts) {
+            await loadScript(src);
         }
+
+        console.log('Play90 Music scripts carregados.');
     }
 
-    // ===================================
-    // START
-    // ===================================
-    async function start() {
+    loadAllScripts();
 
-        try {
-
-            // CSS
-            for (const css of STYLES) {
-                await loadCss(css);
-            }
-
-            // JS
-            await loadGroup('BASE', BASE);
-            await loadGroup('TEMPLATE', TEMPLATE);
-            await loadGroup('CORE', CORE);
-            await loadGroup('ANALYTICS', ANALYTICS);
-            await loadGroup('RENDERS', RENDERS);
-            await loadGroup('APP', APP);
-            await loadGroup('EXTRAS', EXTRAS);
-
-            console.log('🚀 Play90 Music iniciado');
-
-        } catch (error) {
-
-            console.error(
-                'Erro ao iniciar Play90 Music:',
-                error
-            );
-        }
-    }
-
-    start();
-
-})();
+})(jQuery);

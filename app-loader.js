@@ -5,7 +5,7 @@
     // ===================================
     // VERSION
     // ===================================
-    const VERSION = '1.0.17';
+    const VERSION = '1.0.18';
 
     // ===================================
     // CONFIG
@@ -36,7 +36,7 @@
         `${CDN_BASE}/assets/js/breakpoints.min.js`,
         `${CDN_BASE}/assets/slick/slick.min.js`,
         `${CDN_BASE}/assets/js/ripples.js`,
-        `${CDN_BASE}/assets/js/fillcolor.js`
+        `${CDN_BASE}/assets/js/fillcolor.js?v=${VERSION}`,
     ];
 
     // ===================================

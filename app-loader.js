@@ -4,7 +4,6 @@
 
     const scripts = [
         // Base
-		'assets/js/jquery.min.js',
         'assets/js/jquery.scrollgress.min.js',
         'assets/js/breakpoints.min.js',
         'slick/slick.min.js',
